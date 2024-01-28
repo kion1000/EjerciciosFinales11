@@ -15,7 +15,7 @@ public class EjerciciosFinales11 {
         EstudianteInt.Nacionalidad nacionalidad1 = EstudianteInt.Nacionalidad.FRANCES;
         boolean esErasmus1= true;
         
-        Estudiante estudiante1 = new Estudiante ();
+        EstudianteInt estudiante1 = new EstudianteInt (esErasmus1, nacionalidad1, codigo1, nombre1, direccion1, edad1);
         
         System.out.println("\n" + estudiante1.toString());
         
