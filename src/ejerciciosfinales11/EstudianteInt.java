@@ -3,6 +3,7 @@ package ejerciciosfinales11;
 public class EstudianteInt extends Estudiante {
 
     private boolean esErasmus;
+    
     //Nacionalidad es un tipo enum para enumerar las nacionalidades disponibles.
     private Nacionalidad nacionalidad;
 
@@ -16,8 +17,8 @@ public class EstudianteInt extends Estudiante {
 
     public EstudianteInt(boolean esErasmus, Nacionalidad nacionalidad, String codigo, String nombre, String direccion, int edad) {
         super(codigo, nombre, edad, direccion);
-        this.esErasmus = esErasmus;
         this.nacionalidad = nacionalidad;
+        this.esErasmus = this.erasmus();
     }
 
     public boolean getEsErasmus() {
@@ -36,8 +37,8 @@ public class EstudianteInt extends Estudiante {
         this.nacionalidad = nacionalidad;
     }
 
-    private boolean erasmus(Nacionalidad nacionalidad) {
-        return nacionalidad == Nacionalidad.INGLES || nacionalidad == Nacionalidad.FRANCES || nacionalidad == Nacionalidad.PORTUGUES;
+    private boolean erasmus() {
+        return this.nacionalidad == Nacionalidad.INGLES || this.nacionalidad == Nacionalidad.FRANCES || this.nacionalidad == Nacionalidad.PORTUGUES;
 
     }
 
@@ -46,7 +47,7 @@ public class EstudianteInt extends Estudiante {
     }
 
     public boolean descuentoJovenes() {
-        return erasmus(nacionalidad) && getEdad() > 25;
+        return erasmus() && getEdad() < 25;
     }
 
     @Override
@@ -57,7 +58,7 @@ public class EstudianteInt extends Estudiante {
                 + "\nDirecciòn: " + direccion
                 + "\nEdad: " + edad
                 + "\nCodigo: " + getCodigo()
-                + "\nNacionalidad: " + erasmus(nacionalidad)
+                + "\nNacionalidad Europea: " + erasmus()
                 + "\nDescuento: " + descuentoJovenes()
                 + '.';
     }
